@@ -65,7 +65,7 @@ $(document).ready(function(){
   }
 
   function wrongData() {
-    $("#problem-section").html('<label>Inaccurate or missing jumpscares</label><img id="close-problem" src="assets/close.svg"><div class="problem-desc">Jumpscare data may not be accurate. You can contribute by searching for the movie on <a href="https://wheresthejump.com">wheresthejump.com</a> and updating any missing or inaccurate data.<br><br>If the data is correct on the website, but not in Jumpskip, feel free to reach out.</div><div id="contact-us">Contact us</div>');
+    $("#problem-section").html('<label>Inaccurate or missing jumpscares</label><img id="close-problem" src="assets/close.svg"><div class="problem-desc">Jumpscare data may not be accurate. You can contribute by searching for the movie on <a href="https://wheresthejump.com">wheresthejump.com</a> and updating any missing or inaccurate data.<br><br>If the data is correct on the website, but not in Cines, feel free to reach out.</div><div id="contact-us">Contact us</div>');
   }
 
   function notSeeing() {
@@ -84,7 +84,7 @@ $(document).ready(function(){
   }
 
   function contactUs() {
-    chrome.tabs.create({url: "mailto:hi@alyssax.com?subject=Jumpskip%20issue"});
+    chrome.tabs.create({url: "mailto:hi@alyssax.com?subject=Cines%20issue"});
   }
 
   function wheresTheJump() {
@@ -96,11 +96,11 @@ $(document).ready(function(){
   }
 
   function gitHub() {
-    chrome.tabs.create({url: "https://github.com/alyssaxuu/jumpskip"});
+    chrome.tabs.create({url: "https://github.com/alyssaxuu/cines"});
   }
 
   function review() {
-    chrome.tabs.create({url: "https://chrome.google.com/webstore/detail/jumpskip-skip-jumpscares/fbemiaecodgpghdfegmdcikjkobdghab?hl=en&authuser=0"});
+    chrome.tabs.create({url: "https://chrome.google.com/webstore/detail/cines-skip-jumpscares/fbemiaecodgpghdfegmdcikjkobdghab?hl=en&authuser=0"});
   }
 
   function changeOption() {

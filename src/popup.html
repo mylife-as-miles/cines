@@ -1,75 +1,161 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="popup.css">
     <script src="jquery.js"></script>
   </head>
   <body>
-    <button id="help">
-      <img src="assets/help.svg">
-    </button>
-    <div id="help-popup">
-      <p id="github">GitHub</p>
-      <p id="contribute">Contribute data</p>
-      <p id="review">Review Jumpskip</p>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-content">
+        <div class="brand">
+          <img src="assets/logo.svg" id="logo" alt="Cines Logo">
+          <h1 class="brand-name">Cines</h1>
+        </div>
+        <button id="help" class="icon-btn" aria-label="Help menu">
+          <img src="assets/help.svg" alt="Help">
+        </button>
+      </div>
+      <div id="help-popup" class="dropdown-menu">
+        <a href="#" id="github" class="menu-item">
+          <span>GitHub</span>
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+            <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+          </svg>
+        </a>
+        <a href="#" id="contribute" class="menu-item">
+          <span>Contribute data</span>
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>
+        </a>
+        <a href="#" id="review" class="menu-item">
+          <span>Review Cines</span>
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Actions -->
+    <div class="actions-section">
+      <button id="watch" class="btn btn-primary">
+        <img src="assets/watch.svg" alt="Watch">
+        <span>Watch a movie</span>
+      </button>
+      <button id="problem" class="btn btn-secondary">
+        <img src="assets/problem.svg" alt="Issues">
+        <span>Having issues?</span>
+      </button>
     </div>
-    <img src="assets/logo.svg" id="logo">
-    <div id="title">
-      <h1>Jumpskip</h1>
+
+    <!-- Problem Section -->
+    <div id="problem-section" class="problem-section problem-off">
+      <div class="problem-header">
+        <h3>What's happening?</h3>
+        <button id="close-problem" class="icon-btn-small" aria-label="Close">
+          <img src="assets/close.svg" alt="Close">
+        </button>
+      </div>
+      <div class="problem-options">
+        <button id="wrong" class="problem-option">
+          <span>Inaccurate or missing jumpscares</span>
+          <img src="assets/arrow-right.svg" alt="Arrow">
+        </button>
+      </div>
     </div>
-    <div id="actions">
-      <button id="watch"><img src="assets/watch.svg">Watch a movie</button>
-      <button id="problem"><img src="assets/problem.svg">Having issues?</button>
-    </div>
-    <div id="problem-section" class="problem-off">
-      <label>What's happening?</label>
-      <img id="close-problem" src="assets/close.svg">
-      <p id="wrong">Inaccurate or missing jumpscares<img src="assets/arrow-right.svg"></p>
-    </div>
-    <hr>
-    <div class="container">
-      <label class="checkbox-container" id="warning-check">Show jumpscare warning
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
-      <div id="warning-options" class="options">
-        <span><div id="warning-dropdown" class="dropdown">10 seconds<img src="assets/droparrow.svg"></div> before the jumpscare</span>
-        <div class="dropdown-options" id="warning-options-list">
-          <div class="dropdown-item" data-value="1">1 second</div>
-          <div class="dropdown-item" data-value="5">5 seconds</div>
-          <div class="dropdown-item" data-value="10">10 seconds</div>
-          <div class="dropdown-item" data-value="30">30 seconds</div>
+
+    <!-- Settings Section -->
+    <div class="settings-section">
+      <div class="settings-group">
+        <div class="setting-item">
+          <label class="toggle-container" id="warning-check">
+            <input type="checkbox">
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Show jumpscare warning</span>
+          </label>
+          <div id="warning-options" class="setting-options">
+            <div class="option-row">
+              <span class="option-label">Alert timing:</span>
+              <div class="select-wrapper">
+                <div id="warning-dropdown" class="select-trigger">
+                  <span class="select-value">10 seconds</span>
+                  <img src="assets/droparrow.svg" alt="Dropdown" class="select-arrow">
+                </div>
+                <div class="select-dropdown" id="warning-options-list">
+                  <div class="select-item" data-value="1">1 second</div>
+                  <div class="select-item" data-value="5">5 seconds</div>
+                  <div class="select-item" data-value="10">10 seconds</div>
+                  <div class="select-item" data-value="30">30 seconds</div>
+                </div>
+              </div>
+              <span class="option-suffix">before</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label class="toggle-container" id="skip-check">
+            <input type="checkbox">
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Auto-skip jumpscares</span>
+          </label>
+          <div id="skip-options" class="setting-options">
+            <div class="option-row">
+              <span class="option-label">Skip from:</span>
+              <div class="select-wrapper">
+                <div id="skip-start-dropdown" class="select-trigger">
+                  <span class="select-value">10 seconds</span>
+                  <img src="assets/droparrow.svg" alt="Dropdown" class="select-arrow">
+                </div>
+                <div class="select-dropdown" id="skip-options-start">
+                  <div class="select-item" data-value="1">1 second</div>
+                  <div class="select-item" data-value="5">5 seconds</div>
+                  <div class="select-item" data-value="10">10 seconds</div>
+                  <div class="select-item" data-value="30">30 seconds</div>
+                </div>
+              </div>
+              <span class="option-suffix">before</span>
+            </div>
+            <div class="option-row">
+              <span class="option-label">Skip to:</span>
+              <div class="select-wrapper">
+                <div id="skip-end-dropdown" class="select-trigger">
+                  <span class="select-value">10 seconds</span>
+                  <img src="assets/droparrow.svg" alt="Dropdown" class="select-arrow">
+                </div>
+                <div class="select-dropdown" id="skip-options-end">
+                  <div class="select-item" data-value="1">1 second</div>
+                  <div class="select-item" data-value="5">5 seconds</div>
+                  <div class="select-item" data-value="10">10 seconds</div>
+                  <div class="select-item" data-value="30">30 seconds</div>
+                </div>
+              </div>
+              <span class="option-suffix">after</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label class="toggle-container" id="mute">
+            <input type="checkbox">
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Auto-mute jumpscares</span>
+          </label>
         </div>
       </div>
-      <label class="checkbox-container" id="skip-check">Automatically skip all jumpscares
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
-      <div id="skip-options" class="options">
-        <span><div id="skip-start-dropdown" class="dropdown">10 seconds<img src="assets/droparrow.svg"></div> before the jumpscare</span>
-        <div class="dropdown-options" id="skip-options-start">
-          <div class="dropdown-item" data-value="1">1 second</div>
-          <div class="dropdown-item" data-value="5">5 seconds</div>
-          <div class="dropdown-item" data-value="10">10 seconds</div>
-          <div class="dropdown-item" data-value="30">30 seconds</div>
-        </div>
-        <span><div id="skip-end-dropdown" class="dropdown">10 seconds<img src="assets/droparrow.svg"></div> after the jumpscare</span>
-        <div class="dropdown-options" id="skip-options-end">
-          <div class="dropdown-item" data-value="1">1 second</div>
-          <div class="dropdown-item" data-value="5">5 seconds</div>
-          <div class="dropdown-item" data-value="10">10 seconds</div>
-          <div class="dropdown-item" data-value="30">30 seconds</div>
-        </div>
-      </div>
-      <label class="checkbox-container" id="mute">Automatically mute all jumpscares
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
     </div>
-    <div id="footer">
-      <hr>
-      <p>Made with &#128123; by <span>Alyssa X</span></p>
-    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer-text">Made with <span class="heart">♥</span> by <span id="author">Alyssa X</span></p>
+    </footer>
+
     <script src="popup.js"></script>
   </body>
 </html>
